@@ -1,0 +1,97 @@
+import 'package:basic_code_structure/ui/widgets/show_up_transition.dart';
+import 'package:basic_code_structure/utils/extension/string_extension.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../utils/app_colors.dart';
+import '../../utils/app_theme.dart';
+
+class EmptyStateWidget extends StatelessWidget {
+  EmptyState emptyStateFor;
+
+  EmptyStateWidget({Key? key, required this.emptyStateFor}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    String imgName = "";
+    String title = "";
+    String subTitle = "";
+    switch (emptyStateFor) {
+      case EmptyState.NoData:
+        imgName = "icNoDataFound";
+        title = "Key_NoDataFound".localized;
+        break;
+      case EmptyState.EmptyCart:
+        imgName = "icEmptyCart";
+        title = "icEmptyCart".localized;
+        break;
+      default:
+        imgName = "icSomethingWrong";
+        title = "Key_SomethingWentWrong".localized;
+    }
+
+    return Container(
+      // color_assessment_running_test: Colors.red,
+      margin: EdgeInsets.symmetric(horizontal: 30.w),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            /// title text
+            ShowUpTransition(
+              delay: 150,
+              child: Text(title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: AppTheme.fwMedium,
+                      fontSize: 18.sp,
+                      color: AppColors.clrTextByTheme())),
+            ),
+            SizedBox(height: 70.h),
+
+            /// image
+            // ShowUpTransition(
+            //   delay: 150,
+            //   child: InkWell(
+            //     onTap: (){
+            //     },
+            //     child: Image.asset(
+            //         imgName
+            //     ),
+            //   ),
+            // ),
+            // /// sub title
+            // ShowUpTransition(
+            //   delay: 150,
+            //   child: Text(
+            //       title,
+            //       textAlign: TextAlign.center,
+            //       style: TextStyle(fontWeight: fwSemiBold, fontSize: 18.sp, color: clrTextByTheme())
+            //   ),
+            // ),
+            // SizedBox(height: 15.h),
+            // /// black line
+            // SizedBox(height: 15.h,),
+            // /// description
+            // ShowUpTransition(
+            //   delay: 150,
+            //   child: Text(subTitle,
+            //       textAlign: TextAlign.center,
+            //       style: TextStyle(fontWeight: fwRegular, fontSize: 16.sp, color: clrTextGrey)
+            //   ),
+            // ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+enum EmptyState {
+  SomethingWentWrong,
+  NoData,
+  EmptyCart,
+  Shop,
+  RunWay,
+  NoAssessment
+}
