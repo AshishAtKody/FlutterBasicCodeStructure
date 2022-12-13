@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,7 +18,7 @@ class CommonButtonWithIcon extends StatelessWidget {
   final double? icHeight;
   final double? icWidth;
 
-  CommonButtonWithIcon(
+  const CommonButtonWithIcon(
       {Key? key,
       required this.label,
       required this.icon,

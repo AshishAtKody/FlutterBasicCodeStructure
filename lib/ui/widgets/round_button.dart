@@ -1,68 +1,120 @@
+import 'package:basic_code_structure/utils/app_colors.dart';
+import 'package:basic_code_structure/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../utils/app_colors.dart';
-import '../../utils/app_theme.dart';
-
 class RoundButton extends StatelessWidget {
-  final String label;
-  final Function()? onTap;
-  final double? fontSize;
-  final double? minWidth;
-  final Color? bgColor;
-  final Color? titleColor;
-  final bool isEnable;
-  final Color borderColor;
+  final double? height;
+  final double? width;
+  final Color? backgroundColor;
+  final Color? borderColor;
+  final double? borderWidth;
+  final BorderRadius? borderRadius;
+  final String? leftImage;
+  final double? leftImageHeight;
+  final double? leftImageWidth;
+  final double? leftImageHorizontalPadding;
+  final String? rightImage;
+  final double? rightImageHeight;
+  final double? rightImageWidth;
+  final double? rightImageHorizontalPadding;
+  final String? buttonText;
+  final int? buttonMaxLine;
+  final TextStyle? buttonTextStyle;
+  final double? buttonHorizontalPadding;
+  final GestureTapCallback? onTap;
 
   const RoundButton(
       {Key? key,
-      this.label = "",
-      this.onTap,
-      this.fontSize,
-      this.minWidth,
-      this.bgColor,
-      this.titleColor,
-      this.isEnable = true,
-      this.borderColor = Colors.transparent})
-      : super(key: key);
+        this.height,
+        this.width,
+        this.backgroundColor,
+        this.borderColor,
+        this.borderWidth,
+        this.borderRadius,
+        this.leftImage,
+        this.leftImageHeight,
+        this.leftImageWidth,
+        this.leftImageHorizontalPadding,
+        this.rightImage,
+        this.rightImageHeight,
+        this.rightImageWidth,
+        this.rightImageHorizontalPadding,
+        this.buttonText,
+        this.buttonMaxLine,
+        this.buttonTextStyle,
+        this.buttonHorizontalPadding,
+        this.onTap,
+      }
+      ) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50.h,
-      width: minWidth ?? 130.w,
-      child: ElevatedButton(
-        // elevation: 0.0,
-        onPressed: (isEnable) ? onTap : null,
-        // shape: RoundedRectangleBorder(side: BorderSide(
-        //     color: borderColor,
-        //     width: 1,
-        //     style: BorderStyle.solid
-        // ), borderRadius: BorderRadius.circular(25.h)),
-        // padding: EdgeInsets.all(0.0),
-        // splashColor: Color(clrLightPinkGradient),
-        child: Ink(
-          decoration: BoxDecoration(
-              color: (bgColor ?? AppColors.clrPrimary)
-                  .withOpacity((isEnable ? 1.0 : 0.4)),
-              borderRadius: BorderRadius.circular(25.h)),
-          child: Container(
-            constraints:
-                BoxConstraints(minWidth: minWidth ?? 130.w, minHeight: 50.h),
-            alignment: Alignment.center,
-            child: Text(
-              // getLocalValue(context, label),
-              label,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: AppTheme.fontFamily,
-                  fontSize: fontSize ?? 16.sp,
-                  color: titleColor ?? AppColors.clrWhite,
-                  fontWeight: AppTheme.fwRegular),
+
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        height: height ?? 46.h,
+        width: width ?? double.infinity,
+        decoration: BoxDecoration(
+            color: backgroundColor ?? AppColors.clrPrimary,
+            borderRadius: borderRadius ?? BorderRadius.circular(10.r),
+            border: Border.all(
+                color: borderColor ?? AppColors.clrTransparent,
+                width: borderWidth ?? 0
+            )
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            if ((leftImage ?? "").isNotEmpty)
+              Padding(
+              padding: EdgeInsets.symmetric(horizontal: leftImageHorizontalPadding ?? 12.w),
+              child: Image.asset(
+                leftImage!,
+                height: leftImageHeight,
+                width: leftImageWidth,
+              ),
             ),
-          ),
+
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: buttonHorizontalPadding ?? 0),
+                child: Text(
+                  buttonText ?? "",
+                  textAlign: TextAlign.center,
+                  maxLines: buttonMaxLine ?? 1,
+                  style: buttonTextStyle ?? AppTheme.appTextRegular.copyWith(
+                    fontSize: 14.sp,
+                      color: AppColors.clrWhite
+                  ),
+                ),
+              ),
+            ),
+
+            if ((rightImage ?? "").isNotEmpty)
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: rightImageHorizontalPadding ?? 12.w),
+                child: Image.asset(
+                  rightImage!,
+                  height: rightImageHeight,
+                  width: rightImageWidth,
+                ),
+              ),
+          ],
         ),
       ),
     );
   }
 }
+
+/*
+Widget Usage
+RoundButton(
+          buttonText: "Login",
+          onTap: () {
+
+          },
+        )
+* */
