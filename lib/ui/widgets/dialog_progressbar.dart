@@ -1,7 +1,6 @@
+import 'package:basic_code_structure/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../utils/app_colors.dart';
 
 class DialogProgressBar extends StatelessWidget {
   final bool isLoading;
@@ -20,10 +19,9 @@ class DialogProgressBar extends StatelessWidget {
         : (forPagination)
             ? SizedBox(
                 height: 70.h,
-                child: Center(
+                child: const Center(
                     child: CircularProgressIndicator(
-                  valueColor:
-                      AlwaysStoppedAnimation<Color>(AppColors.clrPrimary),
+                  valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
                 )),
               )
             : AbsorbPointer(
@@ -32,12 +30,12 @@ class DialogProgressBar extends StatelessWidget {
                   color: Colors.black.withOpacity(0.4),
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
-                  child: Padding(
-                      padding: const EdgeInsets.all(10.0),
+                  child: const Padding(
+                      padding: EdgeInsets.all(10.0),
                       child: Center(
                           child: CircularProgressIndicator(
                         valueColor:
-                            AlwaysStoppedAnimation<Color>(AppColors.clrPrimary),
+                            AlwaysStoppedAnimation<Color>(AppColors.primary),
                       ))),
                 ),
               );

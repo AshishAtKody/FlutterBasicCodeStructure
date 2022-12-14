@@ -13,7 +13,7 @@ class CacheImage extends StatelessWidget {
   final String? placeholderImage;
   final BoxFit? contentMode;
 
-  CacheImage(
+  const CacheImage(
       {Key? key,
       required this.imageURL,
       required this.height,

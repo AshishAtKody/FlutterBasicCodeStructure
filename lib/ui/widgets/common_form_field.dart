@@ -33,8 +33,8 @@ class CommonInputFormField extends StatelessWidget {
   final InputDecoration? inputDecoration;
   final String? Function(String?)? validator;
 
-  const CommonInputFormField({
-    Key? key,
+  const CommonInputFormField(
+      {Key? key,
       this.placeholderImage,
       this.placeholderImageHeight,
       this.placeholderImageWidth,
@@ -61,52 +61,53 @@ class CommonInputFormField extends StatelessWidget {
       this.prefixWidget,
       this.suffixWidget,
       this.inputDecoration,
-      required this.validator
-    }): super(key: key);
+      required this.validator})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (((placeholderImage ?? "").isNotEmpty) || ((placeholderText ?? "").isNotEmpty)) Padding(
-          padding: EdgeInsets.only(bottom: 8.h),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              if ((placeholderImage ?? "").isNotEmpty)
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: placeholderImageHorizontalPadding ?? 0.w),
-                  child: Image.asset(
-                    placeholderImage!,
-                    height: placeholderImageHeight ?? 32,
-                    width: placeholderImageWidth ?? 32,
+        if (((placeholderImage ?? "").isNotEmpty) ||
+            ((placeholderText ?? "").isNotEmpty))
+          Padding(
+            padding: EdgeInsets.only(bottom: 8.h),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                if ((placeholderImage ?? "").isNotEmpty)
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: placeholderImageHorizontalPadding ?? 0.w),
+                    child: Image.asset(
+                      placeholderImage!,
+                      height: placeholderImageHeight ?? 32,
+                      width: placeholderImageWidth ?? 32,
+                    ),
                   ),
-                ),
-              if ((placeholderText ?? "").isNotEmpty)
-                Text(
-                  placeholderText!,
-                  style: placeholderTextStyle ?? TextStyles.regular.copyWith(
-                      fontSize: 12.sp,
-                      color: AppColors.clrPrimary
+                if ((placeholderText ?? "").isNotEmpty)
+                  Text(
+                    placeholderText!,
+                    style: placeholderTextStyle ??
+                        TextStyles.regular.copyWith(
+                            fontSize: 12.sp, color: AppColors.primary),
                   ),
-                ),
-            ],
+              ],
+            ),
           ),
-        ),
         Container(
           height: fieldHeight ?? 46.h,
           width: fieldWidth ?? double.infinity,
           decoration: BoxDecoration(
-              color: backgroundColor ?? AppColors.clrWhite,
-              borderRadius: borderRadius ?? BorderRadius.circular(10.r),
-              border: Border.all(
-                  color: borderColor ?? AppColors.clrGreyNew,
-                  width: borderWidth ?? 1
-              )
+            color: backgroundColor ?? AppColors.transparent,
+            borderRadius: borderRadius ?? BorderRadius.circular(10.r),
+            /* border: Border.all(
+                  color: borderColor ?? AppColors.greyCFCFCF,
+                  width: borderWidth ?? 1) */
           ),
           child: TextFormField(
-            cursorColor: AppColors.clrPrimary,
+            cursorColor: AppColors.primary,
             controller: textEditingController,
             style: fieldTextStyle ?? TextStyles.regular,
             textAlign: TextAlign.start,
@@ -118,58 +119,57 @@ class CommonInputFormField extends StatelessWidget {
             keyboardType: textInputType ?? TextInputType.text,
             textCapitalization: textCapitalization ?? TextCapitalization.none,
             decoration: InputDecoration(
-              enabled: isEnable ?? true,
+                enabled: isEnable ?? true,
                 counterText: "",
                 filled: true,
-                fillColor: AppColors.clrTransparent,
-                  // contentPadding: prefixIcon != null
-                  //     ? const EdgeInsets.only(right: 8.0)
-                  //     : const EdgeInsets.only(left: 8.0, right: 8),
+                fillColor: AppColors.transparent,
+                // contentPadding: prefixIcon != null
+                //     ? const EdgeInsets.only(right: 8.0)
+                //     : const EdgeInsets.only(left: 8.0, right: 8),
                 prefixIcon: prefixWidget,
                 disabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: AppColors.clrHintText,
+                  borderSide: const BorderSide(
+                    color: AppColors.grey5B5B5B,
                     width: 1,
                     style: BorderStyle.solid,
                   ),
                   borderRadius: borderRadius ?? BorderRadius.circular(10.r),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: AppColors.clrHintText,
+                  borderSide: const BorderSide(
+                    color: AppColors.grey5B5B5B,
                     width: 1,
                     style: BorderStyle.solid,
                   ),
                   borderRadius: borderRadius ?? BorderRadius.circular(10.r),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: AppColors.clrRed,
+                  borderSide: const BorderSide(
+                    color: AppColors.red,
                     width: 1,
                     style: BorderStyle.solid,
                   ),
                   borderRadius: borderRadius ?? BorderRadius.circular(10.r),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: AppColors.clrHintText,
+                  borderSide: const BorderSide(
+                    color: AppColors.grey5B5B5B,
                     width: 1,
                     style: BorderStyle.solid,
                   ),
                   borderRadius: borderRadius ?? BorderRadius.circular(10.r),
                 ),
                 errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: AppColors.clrRed,
+                  borderSide: const BorderSide(
+                    color: AppColors.red,
                     width: 1,
                     style: BorderStyle.solid,
                   ),
                   borderRadius: borderRadius ?? BorderRadius.circular(10.r),
                 ),
                 border: InputBorder.none,
-              hintText: hintText,
-              hintStyle: hintTextStyle
-            ),
+                hintText: hintText,
+                hintStyle: hintTextStyle),
             onFieldSubmitted: (text) {
               textEditingController.text = text;
             },

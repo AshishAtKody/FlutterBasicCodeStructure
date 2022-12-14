@@ -1,15 +1,19 @@
 import 'package:basic_code_structure/ui/widgets/show_up_transition.dart';
+import 'package:basic_code_structure/utils/app_colors.dart';
 import 'package:basic_code_structure/utils/extension/string_extension.dart';
+import 'package:basic_code_structure/utils/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../utils/app_colors.dart';
-import '../../utils/text_style.dart';
+
 
 class EmptyStateWidget extends StatelessWidget {
-  EmptyState emptyStateFor;
+  final EmptyState emptyStateFor;
 
-  EmptyStateWidget({Key? key, required this.emptyStateFor}) : super(key: key);
+  const EmptyStateWidget({
+    Key? key,
+    required this.emptyStateFor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +45,7 @@ class EmptyStateWidget extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: TextStyles.fwMedium,
                       fontSize: 18.sp,
-                      color: AppColors.clrTextByTheme())),
+                      color: AppColors.textByTheme())),
             ),
             SizedBox(height: 70.h),
 
@@ -73,7 +77,7 @@ class EmptyStateWidget extends StatelessWidget {
             //   delay: 150,
             //   child: Text(subTitle,
             //       textAlign: TextAlign.center,
-            //       style: TextStyle(fontWeight: fwRegular, fontSize: 16.sp, color: clrTextGrey)
+            //       style: TextStyle(fontWeight: fwRegular, fontSize: 16.sp, color: grey5B5B5B)
             //   ),
             // ),
           ],

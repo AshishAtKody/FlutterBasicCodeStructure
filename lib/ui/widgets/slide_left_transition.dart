@@ -1,12 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class SlideLeftTransition extends StatefulWidget {
   final Widget child;
   final int delay;
 
-  SlideLeftTransition({required this.child, required this.delay});
+  const SlideLeftTransition({super.key, required this.child, required this.delay});
 
   @override
   _SlideLeftTransitionState createState() => _SlideLeftTransitionState();

@@ -36,7 +36,7 @@ class LoginController extends StateNotifier<AsyncValue<LoginData?>> {
 
   Future performButtonAction() async {
 
-    state = const AsyncLoading();
+    state =  const AsyncLoading();
 
     await Future.delayed(const Duration(milliseconds: 500));
 

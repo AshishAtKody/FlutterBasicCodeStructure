@@ -1,12 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class ShowUpTransition extends StatefulWidget {
   final Widget child;
   final int delay;
 
-  ShowUpTransition({required this.child, required this.delay});
+  const ShowUpTransition({super.key, required this.child, required this.delay});
 
   @override
   _ShowUpTransitionState createState() => _ShowUpTransitionState();

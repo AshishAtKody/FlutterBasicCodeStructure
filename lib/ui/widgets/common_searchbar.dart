@@ -1,10 +1,10 @@
+import 'package:basic_code_structure/utils/app_colors.dart';
+import 'package:basic_code_structure/utils/text_style.dart';
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../utils/app_colors.dart';
-import '../../utils/text_style.dart';
 
 class CommonSearchBar extends StatelessWidget {
   final double? height;
@@ -51,7 +51,7 @@ class CommonSearchBar extends StatelessWidget {
               height: height ?? 48.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.r),
-                border: Border.all(color: AppColors.clrGrey),
+                border: Border.all(color: AppColors.greyCFCFCF),
               ),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
@@ -62,7 +62,7 @@ class CommonSearchBar extends StatelessWidget {
                       icSearchIcon,
                       height: 18.h,
                       width: 18.w,
-                      color: AppColors.clrPrimary,
+                      color: AppColors.primary,
                     ),
                     SizedBox(
                       width: 20.w,
@@ -71,7 +71,7 @@ class CommonSearchBar extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: TextStyles.fwRegular,
                             fontSize: 12.sp,
-                            color: AppColors.clrBlack)),
+                            color: AppColors.black)),
                   ],
                 ),
               ),
@@ -79,12 +79,12 @@ class CommonSearchBar extends StatelessWidget {
           )
         : Container(
             decoration: BoxDecoration(
-                color: AppColors.clrCardBGByTheme(),
+                color: AppColors.cardBGByTheme(),
                 borderRadius: BorderRadius.circular(borderRadius ?? 10.r),
-                border: Border.all(color: AppColors.clrGrey, width: 0.5.w)),
+                border: Border.all(color: AppColors.greyCFCFCF, width: 0.5.w)),
             height: height ?? 48.h,
             child: InkWell(
-              splashColor: clrSplash ?? AppColors.clrDarkGrey.withOpacity(0.3),
+              splashColor: clrSplash ?? AppColors.grey5B5B5B.withOpacity(0.3),
               borderRadius: BorderRadius.circular(circularValue ?? 7.r),
               onTap: onTap,
               child: Padding(
@@ -93,10 +93,9 @@ class CommonSearchBar extends StatelessWidget {
                   child: TextFormField(
                     controller: controller,
                     focusNode: focusNode,
-                    cursorColor: AppColors.clrPrimary,
+                    cursorColor: AppColors.primary,
                     textAlignVertical: TextAlignVertical.center,
-                    style: TextStyles.regular
-                        .copyWith(color: AppColors.clrBlack),
+                    style: TextStyles.regular.copyWith(color: AppColors.black),
                     textInputAction: TextInputAction.search,
                     onChanged: onChanged,
                     maxLines: 1,
@@ -108,7 +107,7 @@ class CommonSearchBar extends StatelessWidget {
                       isDense: true,
                       border: InputBorder.none,
                       hintStyle: TextStyles.regular
-                          .copyWith(color: AppColors.clrGreyNew),
+                          .copyWith(color: AppColors.greyCFCFCF),
                       prefixIcon: Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, bottom: 10.h, right: 16.w),
