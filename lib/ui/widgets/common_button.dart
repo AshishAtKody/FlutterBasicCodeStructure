@@ -2,7 +2,7 @@ import 'package:basic_code_structure/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../utils/app_theme.dart';
+import '../../utils/text_style.dart';
 
 
 /*container with border, height, width,radius,  inkwell for tap
@@ -76,9 +76,9 @@ class CommonButton extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: textSize ?? 16.sp,
-                          fontFamily: AppTheme.fontFamily,
+                          fontFamily: TextStyles.fontFamily,
                           color: labelColor,
-                          fontWeight: AppTheme.fwMedium),
+                          fontWeight: TextStyles.fwMedium),
                     ),
                   ),
                 ],

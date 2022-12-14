@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/app_colors.dart';
-import '../../utils/app_theme.dart';
+import '../../utils/text_style.dart';
 
 class EmptyStateWidget extends StatelessWidget {
   EmptyState emptyStateFor;
@@ -20,10 +20,6 @@ class EmptyStateWidget extends StatelessWidget {
       case EmptyState.NoData:
         imgName = "icNoDataFound";
         title = "Key_NoDataFound".localized;
-        break;
-      case EmptyState.EmptyCart:
-        imgName = "icEmptyCart";
-        title = "icEmptyCart".localized;
         break;
       default:
         imgName = "icSomethingWrong";
@@ -43,7 +39,7 @@ class EmptyStateWidget extends StatelessWidget {
               child: Text(title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontWeight: AppTheme.fwMedium,
+                      fontWeight: TextStyles.fwMedium,
                       fontSize: 18.sp,
                       color: AppColors.clrTextByTheme())),
             ),
@@ -90,8 +86,4 @@ class EmptyStateWidget extends StatelessWidget {
 enum EmptyState {
   SomethingWentWrong,
   NoData,
-  EmptyCart,
-  Shop,
-  RunWay,
-  NoAssessment
 }

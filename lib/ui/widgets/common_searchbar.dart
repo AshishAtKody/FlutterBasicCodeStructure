@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/app_colors.dart';
-import '../../utils/app_theme.dart';
+import '../../utils/text_style.dart';
 
 class CommonSearchBar extends StatelessWidget {
   final double? height;
@@ -69,7 +69,7 @@ class CommonSearchBar extends StatelessWidget {
                     ),
                     Text(label ?? "Key_SearchHere...".tr(),
                         style: TextStyle(
-                            fontWeight: AppTheme.fwRegular,
+                            fontWeight: TextStyles.fwRegular,
                             fontSize: 12.sp,
                             color: AppColors.clrBlack)),
                   ],
@@ -95,7 +95,7 @@ class CommonSearchBar extends StatelessWidget {
                     focusNode: focusNode,
                     cursorColor: AppColors.clrPrimary,
                     textAlignVertical: TextAlignVertical.center,
-                    style: AppTheme.appTextRegular
+                    style: TextStyles.regular
                         .copyWith(color: AppColors.clrBlack),
                     textInputAction: TextInputAction.search,
                     onChanged: onChanged,
@@ -107,7 +107,7 @@ class CommonSearchBar extends StatelessWidget {
                       contentPadding: EdgeInsets.zero,
                       isDense: true,
                       border: InputBorder.none,
-                      hintStyle: AppTheme.appTextRegular
+                      hintStyle: TextStyles.regular
                           .copyWith(color: AppColors.clrGreyNew),
                       prefixIcon: Padding(
                         padding: EdgeInsets.only(

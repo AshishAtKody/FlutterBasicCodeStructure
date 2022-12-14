@@ -2,14 +2,9 @@
 class Assets {
   Assets._();
 
-  static const String fontsPoppinsBlack = 'assets/fonts/Poppins-Black.ttf';
-  static const String fontsPoppinsBlackItalic = 'assets/fonts/Poppins-BlackItalic.ttf';
-  static const String fontsPoppinsBold = 'assets/fonts/Poppins-Bold.ttf';
   static const String imagesIcAddImage = 'assets/images/ic_addImage.png';
   static const String imagesIcAllUser = 'assets/images/ic_all_user.png';
   static const String imagesIcApple = 'assets/images/ic_apple.png';
   static const String imagesIcArrowForward = 'assets/images/ic_arrow_forward.png';
-  static const String jsonCreatePassword = 'assets/json/create_password.json';
-  static const String jsonSuccess = 'assets/json/success.json';
 
 }

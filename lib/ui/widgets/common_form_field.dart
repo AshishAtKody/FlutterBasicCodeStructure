@@ -1,5 +1,5 @@
 import 'package:basic_code_structure/utils/app_colors.dart';
-import 'package:basic_code_structure/utils/app_theme.dart';
+import 'package:basic_code_structure/utils/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -86,7 +86,7 @@ class CommonInputFormField extends StatelessWidget {
               if ((placeholderText ?? "").isNotEmpty)
                 Text(
                   placeholderText!,
-                  style: placeholderTextStyle ?? AppTheme.appTextRegular.copyWith(
+                  style: placeholderTextStyle ?? TextStyles.regular.copyWith(
                       fontSize: 12.sp,
                       color: AppColors.clrPrimary
                   ),
@@ -108,7 +108,7 @@ class CommonInputFormField extends StatelessWidget {
           child: TextFormField(
             cursorColor: AppColors.clrPrimary,
             controller: textEditingController,
-            style: fieldTextStyle ?? AppTheme.appTextRegular,
+            style: fieldTextStyle ?? TextStyles.regular,
             textAlign: TextAlign.start,
             textAlignVertical: TextAlignVertical.center,
             maxLines: maxLines ?? 1,
